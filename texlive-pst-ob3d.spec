@@ -18,9 +18,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
-Conflicts:	texlive-source <= 20110705-3
 
 %description
 The package uses PSTricks to provide basic three-dimensional
@@ -28,20 +25,12 @@ objects. As yet, only cubes (which can be deformed to
 rectangular parallelipipeds) and dies (which are only a special
 kind of cubes) are defined.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -55,7 +44,6 @@ kind of cubes) are defined.
 %doc %{_texmfdistdir}/source/generic/pst-ob3d/Makefile
 %doc %{_texmfdistdir}/source/generic/pst-ob3d/pst-ob3d.dtx
 %doc %{_texmfdistdir}/source/generic/pst-ob3d/pst-ob3d.ins
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -66,5 +54,3 @@ kind of cubes) are defined.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
