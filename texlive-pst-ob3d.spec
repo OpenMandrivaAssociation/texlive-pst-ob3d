@@ -6,7 +6,7 @@
 # catalog-version 0.21
 Name:		texlive-pst-ob3d
 Version:	0.21
-Release:	10
+Release:	11
 Summary:	Three dimensional objects using PSTricks
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/graphics/pstricks/contrib/pst-ob3d
