@@ -1,6 +1,6 @@
 Name:		texlive-pst-ob3d
 Version:	54514
-Release:	1
+Release:	2
 Summary:	Three dimensional objects using PSTricks
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/graphics/pstricks/contrib/pst-ob3d
