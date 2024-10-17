@@ -3,7 +3,7 @@ Version:	54514
 Release:	2
 Summary:	Three dimensional objects using PSTricks
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/graphics/pstricks/contrib/pst-ob3d
+URL:		https://www.ctan.org/tex-archive/graphics/pstricks/contrib/pst-ob3d
 License:	LPPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-ob3d.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-ob3d.doc.r%{version}.tar.xz
