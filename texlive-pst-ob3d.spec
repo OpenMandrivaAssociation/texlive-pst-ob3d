@@ -1,47 +1,23 @@
-Name:		texlive-pst-ob3d
-Version:	54514
-Release:	2
+%global tl_name pst-ob3d
+%global tl_revision 54514
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.22
+Release:	%{tl_revision}.1
 Summary:	Three dimensional objects using PSTricks
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/graphics/pstricks/contrib/pst-ob3d
-License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-ob3d.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-ob3d.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-ob3d.source.r%{version}.tar.xz
+License:	lppl
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-ob3d.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-ob3d.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-ob3d.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package uses PSTricks to provide basic three-dimensional
-objects. As yet, only cubes (which can be deformed to
-rectangular parallelipipeds) and dies (which are only a special
-kind of cubes) are defined.
+The package uses PSTricks to provide basic three-dimensional objects. As
+yet, only cubes (which can be deformed to rectangular parallelipipeds)
+and dies (which are only a special kind of cubes) are defined.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/generic/pst-ob3d
-%{_texmfdistdir}/tex/latex/pst-ob3d
-%doc %{_texmfdistdir}/doc/generic/pst-ob3d
-#- source
-%doc %{_texmfdistdir}/source/generic/pst-ob3d
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
